@@ -8,7 +8,7 @@ function testRequest(value, reason) {
     }
     console.assert(value.id === "430758941530783754", "Not the Imaginary Jobs Discord widget.");
     console.assert(value.responseURL === "https://discordapp.com/api/guilds/430758941530783754/widget.json", "Bad responseURL.");
-    console.assert(value.status === "200", "Failed to receive correct response status.");
+    console.assert(value.status === 200, "Failed to receive correct response status.");
 }
 
 function inviteRequestor(callback, value) {
@@ -17,7 +17,8 @@ function inviteRequestor(callback, value) {
         const {id} = JSON.parse(event.target.responseText);
         callback({
             id,
-            responseURL: event.target.responseURL
+            responseURL: event.target.responseURL,
+            status: event.target.status
         });
     });
     invitationRequest.open("GET", "https://discordapp.com/api/guilds/430758941530783754/widget.json");
