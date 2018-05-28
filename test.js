@@ -11,7 +11,16 @@ function testRequest(value, reason) {
 }
 
 function inviteRequestor(callback, value) {
-	callback({id : "430758941530783754"});
+    const invitationRequest = new XMLHttpRequest();
+    invitationRequest.addEventListener("load", function successHandler(event) {
+        const {id} = JSON.parse(event.target.responseText);
+        callback({
+            id,
+            responseURL: event.target.responseURL
+        });
+    });
+    invitationRequest.open("GET", "https://discordapp.com/api/guilds/430758941530783754/widget.json");
+    invitationRequest.send();
 }
 
 
