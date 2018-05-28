@@ -10,4 +10,8 @@ function testRequest(value, reason) {
 }
 
 function inviteRequestor(callback, value) {
+	callback({id : "430758941530783754"});
 }
+
+
+
