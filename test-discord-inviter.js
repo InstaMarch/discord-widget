@@ -11,7 +11,7 @@ function testContainer(discordWidget) {
 }
 
 function discordWidget() {
-    return;
+    return document.createElement("div");
 }
 
 testDiscordInviter();
